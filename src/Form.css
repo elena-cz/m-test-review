@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding-top: 1.5rem;
 }
 
 .form-rating {
@@ -41,12 +41,60 @@
   align-items: center;
   border: none;
   cursor: pointer;
+  color: #757575;
+  font-size: 1rem;
 }
 
+.form-rating--selected {
+  color: #000;
+  font-weight: 600;
+}
+
+.form-rating:hover,
 .form-rating:active,
 .form-rating:focus {
   outline: none;
+  color: #000;
 }
 
 .form-rating-emoji {
+  font-size: 30px;
+  padding-bottom: 1rem;
+}
+
+.form-rating--selected > .form-rating-emoji {
+  transform: scale(1.7);
+}
+
+.form-rating:hover:not(.form-rating--selected) > .form-rating-emoji,
+.form-rating:focus:not(.form-rating--selected) > .form-rating-emoji {
+  transform: scale(1.1);
+}
+
+#rating1 > .form-rating-emoji {
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#rating2 > .form-rating-emoji {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#rating3 > .form-rating-emoji {
+  transition: transform 90ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes expand {
+  0%,
+  100% {
+    transform: scale(1.7);
+  }
+  50% {
+    transform: scale(2);
+  }
+}
+
+#rating4.form-rating--selected > .form-rating-emoji {
+  animation-name: expand;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
 }

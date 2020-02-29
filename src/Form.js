@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./Form.css";
 
 function Form({ setFeedback, setParty, ratings, ratingValue, setRatingValue }) {
@@ -28,17 +28,21 @@ function Form({ setFeedback, setParty, ratings, ratingValue, setRatingValue }) {
       <div className="form-rating-container">
         {ratings.map(({ value, emoji, text }) => {
           const id = "rating" + value;
+          const isSelected = ratingValue === value;
+
           return (
             <button
               key={id}
               type="button"
               role="radio"
-              aria-checked={ratingValue === value}
+              aria-checked={isSelected}
               id={id}
               name="rating"
               value={value}
-              className="form-rating"
-              onClick={e => setRatingValue(value)}
+              className={`form-rating ${
+                isSelected ? "form-rating--selected" : ""
+              }`}
+              onClick={e => setRatingValue(isSelected ? null : value)}
             >
               <span role="img" aria-label={text} className="form-rating-emoji">
                 {emoji}
