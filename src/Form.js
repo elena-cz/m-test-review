@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { Fragment } from "react";
 import "./Form.css";
 
-function Form({ setFeedback, setParty }) {
+function Form({ setFeedback, setParty, ratings, ratingValue, setRatingValue }) {
   return (
     <div className="form">
       <label className="form-label">Your feedback</label>
@@ -24,9 +24,29 @@ function Form({ setFeedback, setParty }) {
       />
 
       <label className="form-label">How was your meal?</label>
-      <div>
-        *** Add Emoji selector ***
-        {/* Your Code goes here */}
+
+      <div className="form-rating-container">
+        {ratings.map(({ value, emoji, text }) => {
+          const id = "rating" + value;
+          return (
+            <button
+              key={id}
+              type="button"
+              role="radio"
+              aria-checked={ratingValue === value}
+              id={id}
+              name="rating"
+              value={value}
+              className="form-rating"
+              onClick={e => setRatingValue(value)}
+            >
+              <span role="img" aria-label={text} className="form-rating-emoji">
+                {emoji}
+              </span>
+              {text}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

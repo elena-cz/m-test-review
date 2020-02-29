@@ -1,17 +1,23 @@
 import React from "react";
 import "./Preview.css";
 
-function Preview({ feedback, party }) {
+function Preview({ feedback, party, ratings, ratingValue }) {
+  const rating = () => {
+    return ratingValue
+      ? ratings[ratingValue - 1]
+      : { emoji: "", text: "No rating" };
+  };
+
   return (
     <section className="preview">
       <div className="preview-label">Preview of your review</div>
       <div className="preview-content">
         <div className="preview-emoji">
-          😍
-          {/* Your emoji code goes here */}
+          <span role="img" aria-label={rating().text + " Emoji"}>
+            {rating().emoji}
+          </span>
         </div>
         <div className="preview-feedback">
-          {/* Let us know what we did well or could improve... */}
           {feedback ? (
             feedback
           ) : (
@@ -24,6 +30,7 @@ function Preview({ feedback, party }) {
           {party ? party : <span className="placeholder">2</span>} people dined
           here
         </div>
+        <div>Rating: {ratingValue}</div>
       </div>
     </section>
   );
