@@ -22,3 +22,20 @@
   right: 0;
   width: 300px;
 }
+
+/* Mobile styles */
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 1.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .header-content {
+    font-size: 2rem;
+  }
+
+  .header-illustration {
+    display: none;
+  }
+}

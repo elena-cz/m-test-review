@@ -1,5 +1,6 @@
 .preview {
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
   margin-top: 3rem;
 }
 
@@ -34,4 +35,18 @@
 .preview-feedback {
   font-size: 1.25rem;
   padding: 1rem 0 2rem 0;
+}
+
+.preview-party {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 425px) {
+  .preview {
+    margin-top: 0.5rem;
+  }
+
+  .preview-content {
+    padding: 1rem;
+  }
 }

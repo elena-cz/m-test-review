@@ -1,5 +1,6 @@
 .form {
-  width: 480px;
+  width: 100%;
+  max-width: 480px;
   margin-top: 3rem;
 }
 
@@ -15,7 +16,8 @@
   background: rgba(222, 237, 247, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
 }
 
 .form-input {
@@ -25,24 +27,27 @@
   background: rgba(222, 237, 247, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-rating-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-rating {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 80px;
+  padding: 1.5rem 0 0 0;
   border: none;
   cursor: pointer;
   color: #757575;
   font-size: 1rem;
+  background-color: transparent;
 }
 
 .form-rating--selected {
@@ -97,4 +102,19 @@
   animation-name: expand;
   animation-duration: 1s;
   animation-iteration-count: 2;
+}
+
+/* Mobile styles */
+
+@media screen and (max-width: 425px) {
+  .form {
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .form-rating-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

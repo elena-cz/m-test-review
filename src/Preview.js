@@ -30,7 +30,6 @@ function Preview({ feedback, party, ratings, ratingValue }) {
           {party ? party : <span className="placeholder">2</span>} people dined
           here
         </div>
-        <div>Rating: {ratingValue}</div>
       </div>
     </section>
   );
