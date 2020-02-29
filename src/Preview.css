@@ -25,10 +25,9 @@
 
 .preview-feedback {
   font-size: 1.25rem;
-  color: #757575;
   padding: 1rem 0 2rem 0;
 }
 
-.preview-party-number {
+.placeholder {
   color: #757575;
 }

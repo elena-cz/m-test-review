@@ -1,7 +1,7 @@
 import React from "react";
 import "./Preview.css";
 
-function Preview(props) {
+function Preview({ feedback, party }) {
   return (
     <section className="preview">
       <div className="preview-label">Preview of your review</div>
@@ -11,12 +11,18 @@ function Preview(props) {
           {/* Your emoji code goes here */}
         </div>
         <div className="preview-feedback">
-          Let us know what we did well or could improve...
-          {/* Dynamic feedback goes here */}
+          {/* Let us know what we did well or could improve... */}
+          {feedback ? (
+            feedback
+          ) : (
+            <span className="placeholder">
+              Let us know what we did well or could improve...
+            </span>
+          )}
         </div>
         <div className="preview-party">
-          <span class="preview-party-number">2</span>{" "}
-          {/* Dynamic party code goes here */} people dined here
+          {party ? party : <span className="placeholder">2</span>} people dined
+          here
         </div>
       </div>
     </section>
